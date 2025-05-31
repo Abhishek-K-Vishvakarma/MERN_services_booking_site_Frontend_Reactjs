@@ -1,0 +1,10 @@
+#para:hover{
+   background-color: white;
+   cursor: pointer;
+   transition: .8s;
+   color: black;
+}
+
+#same::placeholder{
+   color: white;
+}

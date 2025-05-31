@@ -1,0 +1,11 @@
+@import 'mdb-ui-kit/css/mdb.min.css';
+#img1{
+  background: url('https://static.vecteezy.com/system/resources/thumbnails/011/004/886/small/hologram-security-symbol-modern-future-website-background-or-cover-page-for-technology-and-finance-concept-and-education-company-vector.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: 15em;
+width: 30rem;
+height: 20em;
+padding: 50px;
+}
