@@ -157,9 +157,7 @@ const Login = () => {
         return;
       }
 
-      // Store email and token
       const { email, token, role } = data.data;
-      // const { email, token} = data.data;
       login({ email, token });
       toast.success(data.message);
       setMsg1(data.message);
