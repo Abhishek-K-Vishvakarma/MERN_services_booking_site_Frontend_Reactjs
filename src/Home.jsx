@@ -22,12 +22,11 @@ import { FcApproval } from "react-icons/fc";
 import { RiMessage2Fill } from "react-icons/ri";
 import { HiOutlineRefresh } from "react-icons/hi";
 import { HiUserGroup } from "react-icons/hi";
-import { IoStarHalf } from "react-icons/io5";
+// import { IoStarHalf } from "react-icons/io5";
 import { IoLogoBuffer } from "react-icons/io";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { FaPerbyte } from "react-icons/fa6";
 import { SiUnity } from "react-icons/si";
-
 import './para.css';
 const Home = () => {
   const { user, addsend } = useAuth();
@@ -45,8 +44,8 @@ const Home = () => {
   const [get, setGet] = useState([]);
   const [getusers, setGetUsers] = useState();
   const [ datatime, setTimeData] = useState(0);
-  const [rate, setRate] = useState([]);
-  const [prog, setProg] = useState({1:0, 2:0, 3:0, 4:0, 5:0});
+  // const [rate, setRate] = useState([]);
+  // const [prog, setProg] = useState({1:0, 2:0, 3:0, 4:0, 5:0});
   // const now = 60;
 
   useEffect(() => {
@@ -80,8 +79,8 @@ const Home = () => {
     fetch('http://localhost:7207/api/alluser')
       .then(response => response.json())
       .then((users) => {
-        const data = users.find(u => u);
-        console.log("Data is", data._id)
+        // const data = users.find(u => u);
+        // console.log("Data is", data._id)
         setUData(users);
         console.log(users);
       })
@@ -108,25 +107,25 @@ const Home = () => {
   }, []);
 
   
-   useEffect(()=>{
-     fetch(`http://localhost:7207/api/reviewget`)
-     .then(e=> e.json())
-     .then((data)=>{
-       setRate(data.reviews);
-       console.log("Rewiew", data.reviews);
-       const distribution = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
-       data.reviews.forEach(review=>{
-        const roundRating = Math.round(review.rating);
-        distribution[roundRating]++;
-       })
-       setProg(distribution);
-     })
-   }, []);
+  //  useEffect(()=>{
+  //    fetch(`http://localhost:7207/api/reviewget`)
+  //    .then(e=> e.json())
+  //    .then((data)=>{
+  //      setRate(data.reviews);
+  //      console.log("Rewiew", data.reviews);
+  //      const distribution = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+  //      data.reviews.forEach(review=>{
+  //       const roundRating = Math.round(review.rating);
+  //       distribution[roundRating]++;
+  //      })
+  //      setProg(distribution);
+  //    })
+  //  }, []);
 
-   const totalReviews = rate.length;
-   const getPercentage = (count)=>{
-    return totalReviews ? Math.round((count / totalReviews)*100) : 0;
-   }
+  //  const totalReviews = rate.length;
+  //  const getPercentage = (count)=>{
+  //   return totalReviews ? Math.round((count / totalReviews)*100) : 0;
+  //  }
 
    useEffect(()=>{
      fetch(`http://localhost:7207/api/total`)
@@ -135,7 +134,7 @@ const Home = () => {
           setGetUsers(data)
      })
    }, []);
-  console.log("Prog :", prog);
+  // console.log("Prog :", prog);
   return (
     <div>
       {
@@ -189,6 +188,10 @@ const Home = () => {
                     </Carousel.Item>
                   </Carousel>
                   <h2>Find all services... </h2>
+                  <br/>
+                  <div>
+                    Back to <Link to="/login">Login</Link>
+                  </div>
                   <div>
                     {
                       serve.map((ele) => {
@@ -313,14 +316,14 @@ const Home = () => {
                           <p>Globally Users</p>
                         </p>
                         <p style={{ fontSize: '20px'}}>
-                          <IoStarHalf />{prog[5]}
+                          {/* <IoStarHalf />{prog[5]} */}
                           <p>Service Rating</p>
                         </p>
                       </div>
                     </div>
                     <h2>Rating & Review From Users:</h2>
                     <br />
-                    {[5, 4, 3, 2, 1].map((star) => (
+                    {/* {[5, 4, 3, 2, 1].map((star) => (
                       <div key={star} className="d-flex align-items-center mb-2">
                         <div className="star-label me-2" style={{ width: '30px' }}>
                           {star} ★
@@ -335,9 +338,9 @@ const Home = () => {
                           ({prog[star]})
                         </div>
                       </div>
-                    ))}
+                    ))} */}
                     <div className="mt-3 text-muted">
-                      Based on {totalReviews} customer reviews
+                      {/* Based on {totalReviews} customer reviews */}
                     </div>
                     <br />
                    </div>
